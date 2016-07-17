@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './client')));
 app.use(express.static(path.join(__dirname, './bower_components')));
 
+// load mongoose/model
+require('./server/config/mongoose.js');
 
 let server = app.listen(port, () =>{
   console.log(`server listening on TCP/${port}`);
