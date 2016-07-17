@@ -17,6 +17,10 @@ app.use(express.static(path.join(__dirname, './bower_components')));
 // load mongoose/model
 require('./server/config/mongoose.js');
 
+// route_setter
+const routes_setter = require('./server/config/routes.js');
+routes_setter(app);
+
 let server = app.listen(port, () =>{
   console.log(`server listening on TCP/${port}`);
 })
