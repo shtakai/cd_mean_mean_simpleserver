@@ -1,0 +1,21 @@
+{
+  "name": "cd_mean_mean_simpleserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shtakai/cd_mean_mean_simpleserver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shtakai/cd_mean_mean_simpleserver/issues"
+  },
+  "homepage": "https://github.com/shtakai/cd_mean_mean_simpleserver#readme"
+}

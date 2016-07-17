@@ -1,0 +1,17 @@
+{
+  "name": "cd_mean_mean_simpleserver",
+  "homepage": "https://github.com/shtakai/cd_mean_mean_simpleserver",
+  "authors": [
+    "Alyson Takai <shtakai@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
