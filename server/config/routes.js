@@ -7,6 +7,8 @@ const mongoose = require('mongoose')
  * what is this 'friend' object we are referencing below.
  */
 
+const friends = require('../controllers/friends.js')
+
 module.exports = (app) => {
   app.get('/friends'        , friends.index)
   app.get('/friends/:id'    , friends.show)
