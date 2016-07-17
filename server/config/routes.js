@@ -2,6 +2,11 @@ console.log(' routes')
 
 const mongoose = require('mongoose')
 
+/*
+ * we need to add a few lines of code up here.
+ * what is this 'friend' object we are referencing below.
+ */
+
 module.exports = (app) => {
   app.get('/friends'        , friends.index)
   app.get('/friends/:id'    , friends.show)
@@ -9,3 +14,7 @@ module.exports = (app) => {
   app.put('/friends/:id'    , friends.update)
   app.delete('/friends/:id' , friends.delete)
 }
+
+/*
+ * this adds route listeners to friends for restful routes
+ */
