@@ -1,4 +1,8 @@
 <!-- You will attach an ng-model and an ng-submit to your forms (but might want to wait until the next tab, when you have your controllers and factory) -->
-<form>
+<h1>NEW</h1>
+<form ng-click="fc.create()">
+  First Name: <input type="text" ng-model="fc.firstName">
+  Last Name: <input type="text" ng-model="fc.lastName">
+  <input type="submit" value="Create">
   <!-- Appropriate inputs here! -->
 </form>
