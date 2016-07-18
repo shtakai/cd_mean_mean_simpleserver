@@ -7,10 +7,26 @@ console.log('friends controller')
  * build out the methods in the this controller.
  */
 
+// load Friend model
+const mongoose = require('mongoose')
+const faker = require('faker')
+const Friend = mongoose.model('Friend')
+
+
+
+
 function FriendsController() {
   this.index = (req, res) => {
-
-    res.json({placeholder: 'index'})
+    Friend.find({})
+      .sort({created_at: -1})
+      .exec( (err, friends) => {
+        if(err){
+          res.json(err);
+        }else{
+          res.json({friends: friends})
+        }
+      }
+    )
   }
 
   this.create = (req, res) => {
@@ -29,8 +45,18 @@ function FriendsController() {
   }
 
   this.show = (req, res) => {
-
-    res.json({placeholder: 'show'})
+    Friend.findOne({
+      _id: req.params.id
+    })
+    .exec( (err, friend) => {
+      if(err){
+        res.json(err)
+      }else{
+        res.json({
+          friend: friend
+        })
+      }
+    })
   }
 
 }

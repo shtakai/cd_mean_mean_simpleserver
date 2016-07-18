@@ -20,6 +20,10 @@ require('./server/config/mongoose.js')
 // route_setter
 require('./server/config/routes.js')(app)
 
+
+
+
+
 let server = app.listen(port, () =>{
   console.log(`server listening on TCP/${port}`)
 })

@@ -44,3 +44,4 @@ fs.readdirSync(modelsPath).forEach( (file) => {
     require(`${modelsPath}/${file}`)
   }
 } )
+
