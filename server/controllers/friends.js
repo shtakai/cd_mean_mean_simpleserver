@@ -40,8 +40,16 @@ function FriendsController() {
   }
 
   this.delete = (req, res) => {
-
-    res.json({placeholder: 'delete'})
+    Friend.remove({
+      _id: req.params.id
+    })
+    .exec( (err) => {
+      if(err){
+        req.json(err)
+      }else{
+        res.json({deleted: req.params.id})
+      }
+    } )
   }
 
   this.show = (req, res) => {
