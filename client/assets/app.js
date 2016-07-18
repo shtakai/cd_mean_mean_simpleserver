@@ -18,7 +18,6 @@ app.config(($routeProvider) => {
       controllerAs: 'c',
     })
     .when('/delete/:id', {
-      templateUrl: '../partials/delete.html',
       controller: 'deleteController',
       controllerAs: 'c',
     })

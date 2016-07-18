@@ -9,11 +9,11 @@ app.controller(
        console.log('deleteController#delete', id)
        friendsFactory.delete(id, (returned_data) => {
          console.log('C returned_data', returned_data)
-        $location.url('/')
        })
     }
 
     _delete($routeParams.id)
+    $location.url('/')
 
   }
 )
