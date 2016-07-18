@@ -64,10 +64,10 @@ function FriendsController() {
   }
 
   this.delete = (req, res) => {
-    Friend.remove({
+    Friend.findOneAndRemove(
+      {
       _id: req.params.id
-    })
-    .exec( (err) => {
+      },  (err) => {
       if(err){
         req.json(err)
       }else{
