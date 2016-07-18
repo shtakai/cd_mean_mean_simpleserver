@@ -42,6 +42,7 @@ app.controller(
           this.firstName = ""
           this.lastName = ""
           index()
+          $location.path('/')
         })
       }
 
