@@ -12,9 +12,6 @@ const mongoose = require('mongoose')
 const faker = require('faker')
 const Friend = mongoose.model('Friend')
 
-
-
-
 function FriendsController() {
   this.index = (req, res) => {
     Friend.find({})
@@ -50,8 +47,7 @@ function FriendsController() {
       {
         first_name: req.body.first_name,
         last_name: req.body.last_name
-      },
-      {
+      },{
         new: true
       }, (err, friend) => {
         if(err){
@@ -67,7 +63,7 @@ function FriendsController() {
     Friend.findOneAndRemove(
       {
       _id: req.params.id
-      },  (err) => {
+      }, (err) => {
       if(err){
         req.json(err)
       }else{
