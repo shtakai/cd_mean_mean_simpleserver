@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
+<!-- DONT FORGET TO ADD YOUR ANGULAR APP! -->
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Awesome Superstars</title>
 </head>
 <body>
-  Welcome
+  <div>
+    <a href="#/new">new</a>
+    <a href="#/edit/1"><== ID:1 edit ?</a>
+  </div>
+  <h1>_-_-_-_</h1>
+  <div class="container" ng-view></div>
 </body>
+<script src="lodash/lodash.js"></script>
+<script src="angular/angular.js"></script>
+<script src="angular-route/angular-route.js"></script>
+<script src="assets/app.js"></script>
+<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
 </html>
