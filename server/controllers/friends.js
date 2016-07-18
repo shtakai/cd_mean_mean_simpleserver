@@ -45,8 +45,22 @@ function FriendsController() {
   }
 
   this.update = (req, res) => {
-
-    res.json({placeholder: 'update'})
+    Friend.findOneAndUpdate(
+      {_id: req.params.id},
+      {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name
+      },
+      {
+        new: true
+      }, (err, friend) => {
+        if(err){
+          res.json(err)
+        }else {
+          res.json({ friend: friend })
+        }
+      }
+    )
   }
 
   this.delete = (req, res) => {
