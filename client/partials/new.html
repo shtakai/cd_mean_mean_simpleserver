@@ -1,8 +1,16 @@
 <!-- You will attach an ng-model and an ng-submit to your forms (but might want to wait until the next tab, when you have your controllers and factory) -->
-<h1>NEW</h1>
-<form ng-click="fc.create()">
-  First Name: <input type="text" ng-model="fc.firstName">
-  Last Name: <input type="text" ng-model="fc.lastName">
+<h1 ng-init="c.index()">NEW</h1>
+<form ng-submit="c.create()">
+  First Name: <input type="text" ng-model="c.firstName">
+  Last Name: <input type="text" ng-model="c.lastName">
   <input type="submit" value="Create">
   <!-- Appropriate inputs here! -->
 </form>
+<div>
+  {{ c.friends }}
+  <hr>
+
+  <ul>
+    <li ng-repeat="friend in c.friends">{{ friend.first_name }} <a href="#/show/{{ friend._id }}">show</a></li>
+  </ul>
+</div>

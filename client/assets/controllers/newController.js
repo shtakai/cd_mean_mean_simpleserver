@@ -21,8 +21,8 @@ app.controller(
 
       let index = () => {
         friendsFactory.index((returnedData) => {
-          this.friends = returnedData
-          console.log(this.friends)
+          this.friends = returnedData.friends
+          console.log('index',this.friends)
         })
       }
       index()
@@ -32,5 +32,20 @@ app.controller(
        *  ng-click (from the form in the previous assignment).
        *  Want to all of the friends when we get back?  We can re-run index.
        */
+
+      this.create = () => {
+        friendsFactory.create(
+          { first_name: this.firstName, last_name: this.lastName },
+          (returnedData) => {
+
+          console.log('newController#create', returnedData)
+          this.firstName = ""
+          this.lastName = ""
+          index()
+        })
+      }
+
+
+
     }
 )
