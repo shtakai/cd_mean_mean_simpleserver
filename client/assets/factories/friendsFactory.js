@@ -43,8 +43,14 @@ app.factory('friendsFactory',[
        */
       }
 
-      this.delete = () => {
+      this.delete = (id, callback) => {
          // code
+        console.log(`FriendsFactory#delete ${id}`)
+        $http.delete(`/friends/${id}`)
+          .then( (returned_data) => {
+            console.log('F returned_data', returned_data)
+            callback(returned_data)
+          } )
       }
 
       this.show = (id, callback) => {
