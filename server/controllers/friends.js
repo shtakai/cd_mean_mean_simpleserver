@@ -29,9 +29,19 @@ function FriendsController() {
     )
   }
 
+  // NOTE: when using Postman,
+  //  POST > Body > x-www-form.urlencoded
   this.create = (req, res) => {
-
-    res.json({placeholder: 'create'})
+    let _friend = new Friend()
+    _friend.first_name = req.body.first_name
+    _friend.last_name = req.body.last_name
+    _friend.save( (err, friend) => {
+      if(err){
+        res.json(err)
+      }else {
+        res.json({ friend: friend })
+      }
+    } )
   }
 
   this.update = (req, res) => {
