@@ -11,8 +11,8 @@ app.controller(
      * rather, just ran the friendsFactory method directly.
      */
 
-    friendsFactory.getFriend((returnedData) => {
-      this.friend = returnedData
+    friendsFactory.show($routeParams.id, (returned_data) => {
+      this.friend = returned_data.friend
       console.log(this.friend)
     })
 
