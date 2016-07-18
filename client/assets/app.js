@@ -2,16 +2,39 @@ const app = angular.module('app', ['ngRoute'])
 
 app.config(($routeProvider) => {
   $routeProvider
+    .when('/', {
+      templateUrl: '../partials/index.html',
+      controller: 'newController',
+      controllerAs: 'c',
+    })
     .when('/new', {
       templateUrl: '../partials/new.html',
-      controller: 'FriendsController',
-      controllerAs: 'fc',
+      controller: 'newController',
+      controllerAs: 'c',
+    })
+    .when('/show/:id', {
+      templateUrl: '../partials/show.html' ,
+      controller: 'showController',
+      controllerAs: 'c',
+    })
+    .when('/delete/:id', {
+      templateUrl: '../partials/delete.html',
+      controller: 'deleteController',
+      controllerAs: 'c',
     })
     .when('/edit/:id', {
       templateUrl: '../partials/edit.html',
-      controller: 'FriendsController',
-      controllerAs: 'fc',
+      controller: 'editController',
+      controllerAs: 'c',
     })
+    .otherwise({
+      redirectTo: '/'
+    })
+    //.when('/update/d', {
+      //templateUrl: '../partials/update.html',
+      //controller: 'updateController',
+      //controllerAs: 'c',
+    //})
 });
 
 /**
@@ -19,23 +42,3 @@ app.config(($routeProvider) => {
  */
 
 
-app.controller(
-  'FriendsController',
-    function( $location, $routeParams ){
-      console.log('FriendsController start');
-      console.log('routeParams', $routeParams)
-      console.log('location', $location);
-      this.newtext = 'new'
-      this.edittext = 'edit'
-
-      this.create = () => {
-         console.log('FriendsController create')
-         console.log(`first name:${this.firstName}  last name:${this.lastName}`)
-      }
-
-      this.update = () => {
-         console.log('FriendsController update')
-         console.log(`first name:${this.firstName}  last name:${this.lastName}`)
-      }
-    }
-)

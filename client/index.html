@@ -6,16 +6,21 @@
   <title>Awesome Superstars</title>
 </head>
 <body>
-  <div>
-    <a href="#/new">new</a>
-    <a href="#/edit/1"><== ID:1 edit ?</a>
-  </div>
-  <h1>_-_-_-_</h1>
+  <h1>
+    <a href="#/" class="btn-lg btn-success">Friend List</a>
+    <a href="#/new" class="btn-lg btn-success">Create Friend</a>
+  </h1>
   <div class="container" ng-view></div>
 </body>
 <script src="lodash/lodash.js"></script>
 <script src="angular/angular.js"></script>
 <script src="angular-route/angular-route.js"></script>
 <script src="assets/app.js"></script>
+<script src="assets/factories/friendsFactory.js"></script>
+<script src="assets/controllers/newController.js"></script>
+<script src="assets/controllers/editController.js"></script>
+<script src="assets/controllers/showController.js"></script>
+<script src="assets/controllers/deleteController.js"></script>
+<script src="assets/controllers/updateController.js"></script>
 <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
 </html>

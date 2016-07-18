@@ -29,13 +29,18 @@ function FriendsController() {
   // NOTE: when using Postman,
   //  POST > Body > x-www-form.urlencoded
   this.create = (req, res) => {
+    console.log('FriendsController#create',req.body)
     let _friend = new Friend()
+    console.log(req.body.first_name)
+    console.log(req.body.last_name)
     _friend.first_name = req.body.first_name
     _friend.last_name = req.body.last_name
+    console.log(_friend)
     _friend.save( (err, friend) => {
       if(err){
         res.json(err)
       }else {
+        console.log(friend)
         res.json({ friend: friend })
       }
     } )
@@ -73,6 +78,7 @@ function FriendsController() {
   }
 
   this.show = (req, res) => {
+    console.log('show---------', req.params.id)
     Friend.findOne({
       _id: req.params.id
     })
