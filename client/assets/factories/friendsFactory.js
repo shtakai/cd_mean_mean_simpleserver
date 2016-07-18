@@ -18,9 +18,16 @@ app.factory('friendsFactory',[
           } )
       }
 
-      this.update = () => {
+      this.update = (id, friend_data, callback) => {
          // what parameters do we need?
-        // code
+         console.log('F update', id)
+         console.log('F update', friend_data)
+         $http.put(`/friends/${id}`, friend_data)
+           .then( (returned_data) => {
+              console.log('returned_data', returned_data)
+              callback(returned_data)
+           } )
+
       }
 
       this.index = (callback) => {
