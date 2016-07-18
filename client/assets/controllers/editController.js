@@ -22,5 +22,17 @@ app.controller(
      * previous assignment).  Want to see all of the friends when we get
      * back including the updated on??  See Index in the previous controller.
      */
+    this.update = (id) => {
+      console.log(`updateController#update ${id}`)
+      friendsFactory.update(
+        id,
+        {first_name: this.friend.first_name, last_name: this.friend.last_name},
+        (returned_data) => {
+        console.log('returned data', returned_data)
+        $location.url('/')
+
+      })
+    }
+
   }
 )
