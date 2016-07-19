@@ -1,28 +1,36 @@
 <h1 ng-init="c.index()">index template</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>first name</th>
-      <th>last name</th>
-      <th>created at</th>
-      <th>actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="friend in c.friends">
-      <td ng-bind="friend._id"></td>
-      <td ng-bind="friend.first_name"></td>
-      <td ng-bind="friend.last_name"></td>
-      <td ng-bind="friend.created_at"></td>
-      <td>
-        <a href="#/show/{{ friend._id }}">show</a>
-        |
-        <a href="#/edit/{{ friend._id }}">edit</a>
-        |
-        <a href="#/delete/{{ friend._id }}">delete</a>
-      </td>
-    </tr>
-  </tbody>
+<div class="row">
 
-</table>
+  <div class="col-md-9">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>first name</th>
+          <th>last name</th>
+          <th>birthday</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="friend in c.friends| filter:filter">
+          <td >{{ friend.first_name }}</td>
+          <td >{{ friend.last_name }}</td>
+          <td >{{ friend.birthday | date}}</td>
+          <td>
+            <a href="#/show/{{ friend._id }}" >show</a>
+            |
+            <a href="#/edit/{{ friend._id }}">edit</a>
+            |
+            <a href="#/delete/{{ friend._id }}">delete</a>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <div class="col-md-3">
+    <h1>test</h1>
+    <input type="text" ng-model="filter.birthday">
+  </div>
+</div>
