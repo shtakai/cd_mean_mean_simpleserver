@@ -112,7 +112,7 @@ angular.module('app').controller(
         console.log(`updateController#update ${id}`)
         friendsFactory.update(
           id,
-          {first_name: this.friend.first_name, last_name: this.friend.last_name},
+          {first_name: this.friend.first_name, last_name: this.friend.last_name, birthday: this.birthday},
           (returned_data) => {
             console.log('returned data', returned_data)
             $location.url('/')
