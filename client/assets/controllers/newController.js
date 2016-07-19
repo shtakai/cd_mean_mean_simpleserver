@@ -7,11 +7,6 @@ app.controller(
       console.log('location', $location);
       this.newtext = 'new'
 
-      this.create = () => {
-         console.log('newController create')
-         console.log(`first name:${this.firstName}  last name:${this.lastName}`)
-      }
-
       /**
        *   THIS INDEX METHOD ACCESSES THE FRIENDS FACTORY AND RUNS
        *   THE FRIENDS INDEX.
