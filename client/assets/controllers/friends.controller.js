@@ -1,11 +1,12 @@
 
 angular.module('app').controller(
-  'FriendsController',
+  'FriendsListController',
     function( friendsFactory, $location, $routeParams ){
 
       console.log('FriendsController start');
       console.log('routeParams', $routeParams)
       console.log('location', $location);
+
 
       /**
        *   THIS INDEX METHOD ACCESSES THE FRIENDS FACTORY AND RUNS
@@ -23,13 +24,19 @@ angular.module('app').controller(
           console.log('index',this.friends)
         })
       }
+    }
+)
 
+angular.module('app').controller(
+  'FriendsCreateController',
+    function( friendsFactory, $location, $routeParams ){
       /**
        *  OUR $scope.create function goes here <--
        *  $scope because we need to access this method with ng-submit or
        *  ng-click (from the form in the previous assignment).
        *  Want to all of the friends when we get back?  We can re-run index.
        */
+      console.log('------------')
 
       this.create = () => {
         friendsFactory.create(
@@ -42,8 +49,12 @@ angular.module('app').controller(
           $location.path('/')
         })
       }
+    }
+)
 
-
+angular.module('app').controller(
+  'FriendsDeleteController',
+    function( friendsFactory, $location, $routeParams ){
       /**
        * delete friend
        */
@@ -56,6 +67,12 @@ angular.module('app').controller(
       $location.url('/')
       }
 
+    }
+)
+
+angular.module('app').controller(
+  'FriendsGetController',
+    function( friendsFactory, $location, $routeParams ){
 
       /**
        * GET A FRIEND FROM THE FACTORY, This is a one time thing when
@@ -63,22 +80,28 @@ angular.module('app').controller(
        * rather, just ran the friendsFactory method directly.
        */
 
-      this.show = () => {
-        friendsFactory.show($routeParams.id, (returned_data) => {
+      console.log('$routeParams', $routeParams.id)
+      this.show = (id) => {
+        console.log('showController show')
+        friendsFactory.show(id, (returned_data) => {
+          console.log('C returned_data', returned_data.friend)
           this.friend = returned_data.friend
-          console.log(this.friend)
         })
       }
 
-    //let show = (id) => {
-      //console.log('showController show')
-      //friendsFactory.show(id, (returned_data) => {
-        //console.log('C returned_data', returned_data.friend)
-        //this.friend = returned_data.friend
-      //})
-    //}
+      this.show($routeParams.id)
 
+    }
+)
 
+angular.module('app').controller(
+  'FriendsEditController',
+    function( friendsFactory, $location, $routeParams ){
+
+      friendsFactory.show($routeParams.id, (returned_data) => {
+        console.log('C returned_data', returned_data.friend)
+        this.friend = returned_data.friend
+      })
       /**
        * OUR $scope.update function goes here <-- $scope because we need to
        * access this method with ng-submit or ng-click (from the form in the
