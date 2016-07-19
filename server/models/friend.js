@@ -9,6 +9,9 @@ const FriendSchema = new mongoose.Schema({
   },
   last_name: {
     type: String
+  },
+  birthday: {
+    type: Date
   }
 },{
   timestamps: {
