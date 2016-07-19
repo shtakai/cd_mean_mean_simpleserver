@@ -40,7 +40,7 @@ angular.module('app').controller(
 
       this.create = () => {
         friendsFactory.create(
-          { first_name: this.firstName, last_name: this.lastName },
+          { first_name: this.firstName, last_name: this.lastName, birthday: this.birthday},
           (returnedData) => {
 
           console.log('newController#create', returnedData)

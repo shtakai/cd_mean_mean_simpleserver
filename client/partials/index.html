@@ -6,6 +6,7 @@
       <th>first name</th>
       <th>last name</th>
       <th>created at</th>
+      <th>birthday</th>
       <th>actions</th>
     </tr>
   </thead>
@@ -15,8 +16,9 @@
       <td ng-bind="friend.first_name"></td>
       <td ng-bind="friend.last_name"></td>
       <td ng-bind="friend.created_at"></td>
+      <td ng-bind="friend.birthday"></td>
       <td>
-        <a href="#/show/{{ friend._id }}">show</a>
+        <a href="#/show/{{ friend._id }}" >show</a>
         |
         <a href="#/edit/{{ friend._id }}">edit</a>
         |

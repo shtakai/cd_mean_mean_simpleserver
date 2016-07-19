@@ -35,6 +35,7 @@ function FriendsController() {
     console.log(req.body.last_name)
     _friend.first_name = req.body.first_name
     _friend.last_name = req.body.last_name
+    _friend.birthday = req.body.birthday
     console.log(_friend)
     _friend.save( (err, friend) => {
       if(err){
@@ -51,7 +52,8 @@ function FriendsController() {
       {_id: req.params.id},
       {
         first_name: req.body.first_name,
-        last_name: req.body.last_name
+        last_name: req.body.last_name,
+        birthday: req.body.birthday
       },{
         new: true
       }, (err, friend) => {
