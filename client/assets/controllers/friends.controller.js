@@ -46,7 +46,7 @@ angular.module('app').controller(
           console.log('newController#create', returnedData)
           this.firstName = ""
           this.lastName = ""
-          $location.path('/')
+          $location.path(`/show/${returnedData.friend._id}`)
         })
       }
     }
@@ -101,6 +101,12 @@ angular.module('app').controller(
       friendsFactory.show($routeParams.id, (returned_data) => {
         console.log('C returned_data', returned_data.friend)
         this.friend = returned_data.friend
+        if(this.friend.birthday){
+          this.friend.birthday = new Date(this.friend.birthday)
+        }
+        //this.first_name = returned_data.first_name
+        //this.last_name = returned_data.last_name
+        //this.birthday = returned_data.birthday
       })
       /**
        * OUR $scope.update function goes here <-- $scope because we need to
@@ -110,13 +116,17 @@ angular.module('app').controller(
        */
       this.update = (id) => {
         console.log(`updateController#update ${id}`)
+        console.log('first', this.first_name)
+        console.log('last ', this.last_name)
+        console.log('birth', this.birthday)
+        console.log('friend', this.friend)
         friendsFactory.update(
           id,
-          {first_name: this.friend.first_name, last_name: this.friend.last_name, birthday: this.birthday},
+          {first_name: this.friend.first_name, last_name: this.friend.last_name, birthday: this.friend.birthday},
           (returned_data) => {
             console.log('returned data', returned_data)
-            $location.url('/')
           })
+        $location.url(`/show/${id}`)
       }
 
 })
