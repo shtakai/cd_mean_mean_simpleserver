@@ -4,30 +4,26 @@ app.config(($routeProvider) => {
   $routeProvider
     .when('/', {
       templateUrl: '../partials/index.html',
-      controller: 'FriendsController',
+      controller: 'FriendsListController',
       controllerAs: 'c',
     })
     .when('/new', {
       templateUrl: '../partials/new.html',
-      controller: 'FriendsController',
+      controller: 'FriendsCreateController',
       controllerAs: 'c',
     })
     .when('/show/:id', {
       templateUrl: '../partials/show.html' ,
-      controller: 'FriendsController',
+      controller: 'FriendsGetController',
       controllerAs: 'c',
     })
     .when('/delete/:id', {
-      controller: 'FriendsController',
-      controllerAs: 'c',
-    })
-    .when('/update/:id', {
-      controller: 'FriendsController',
+      controller: 'FriendsDeleteController',
       controllerAs: 'c',
     })
     .when('/edit/:id', {
       templateUrl: '../partials/edit.html',
-      controller: 'FriendsController',
+      controller: 'FriendsEditController',
       controllerAs: 'c',
     })
     .otherwise({
