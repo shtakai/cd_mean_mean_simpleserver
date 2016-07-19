@@ -8,6 +8,7 @@ const mongoose = require('mongoose')
  */
 
 const friends = require('../controllers/friends.js')
+const customers = require('../controllers/customers.js')
 
 module.exports = (app) => {
   app.get('/friends'        , friends.index)
@@ -15,6 +16,8 @@ module.exports = (app) => {
   app.post('/friends'       , friends.create)
   app.put('/friends/:id'    , friends.update)
   app.delete('/friends/:id' , friends.delete)
+  app.get('/customers'      , customers.index)
+  app.post('/customers'     , customers.create)
 }
 
 /*
