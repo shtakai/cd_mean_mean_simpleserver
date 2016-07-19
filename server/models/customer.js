@@ -1,3 +1,4 @@
+const bcrypt         = require('bcrypt')
 const mongoose       = require('mongoose')
 const Schema         = mongoose.Schema
 const customerSchema = new Schema({
@@ -61,7 +62,11 @@ const customerSchema = new Schema({
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,32}/.test( value );
       },
       message: "Password failed validation, you must have at least 1 number, uppercase and special character"
-    }
+    },
+    //set: (pw) => {
+      //this._pw = this.password
+      //return pw
+    //}
   },
 
 
@@ -80,6 +85,24 @@ const customerSchema = new Schema({
     updatedAt: 'updated_at'
   }
 });
+
+// custom method
+customerSchema.method.doTest = (input) => {
+   return this.age + " " + input
+}
+
+// pre save
+customerSchema.pre('save', (done) => {
+  console.log('presave')
+  console.log(this)
+  //let tmppw = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8))
+  // Generate a salt
+  //var salt = bcrypt.genSaltSync(10);
+  // Hash the password with the salt
+  var hash = bcrypt.hashSync("my password", bcrypt.genSaltSync(10));
+  console.log('temppw', hash)
+  done()
+})
 
 
 customerSchema.virtual( 'name.full' ).get( function () {
