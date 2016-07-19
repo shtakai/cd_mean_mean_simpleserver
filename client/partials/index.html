@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="friend in c.friends">
+        <tr ng-repeat="friend in c.friends| filter:filter">
           <td >{{ friend.first_name }}</td>
           <td >{{ friend.last_name }}</td>
           <td >{{ friend.birthday | date}}</td>
@@ -31,5 +31,6 @@
 
   <div class="col-md-3">
     <h1>test</h1>
+    <input type="text" ng-model="filter.birthday">
   </div>
 </div>
